@@ -1,0 +1,38 @@
+//import { prisma } from "@/lib/prisma";
+import { User } from "@/lib/sequelize";
+import { hash } from "bcryptjs";
+import { NextResponse } from "next/server";
+
+type reqType = {
+  name: string;
+  email: string;
+  password: string;
+}
+
+export async function POST(req: Request) {
+  try {
+    const { name, email, password } = (await req.json()) as reqType;
+    const hashed_password = await hash(password, 12);
+
+    const user = await User.create({
+      name: name,
+      email: email.toLowerCase(),
+      password: hashed_password,
+    }) as unknown as reqType;
+
+    return NextResponse.json({
+      user: {
+        name: user.name,
+        email: user.email,
+      },
+    });
+  } catch (error: any) {
+    return new NextResponse(
+      JSON.stringify({
+        status: "error",
+        message: error.message,
+      }),
+      { status: 500 }
+    );
+  }
+}
