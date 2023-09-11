@@ -2,13 +2,13 @@
 import React, { useState } from 'react';
 import Auth from "@/components/Auth";
 import Nav from "react-bootstrap/Nav";
-import Image from "react-bootstrap/Image";
 import Navbar from "react-bootstrap/Navbar";
 import { BiLogoWhatsapp } from "react-icons/bi";
 import Container from "react-bootstrap/Container";
 import NavDropdown from "react-bootstrap/NavDropdown";
 
 import { signOut, useSession } from "next-auth/react";
+import { Image } from 'next/image';
 
 function ResponsiveNavbar() {
   const [open, setOpen] = useState(false);
@@ -35,11 +35,10 @@ function ResponsiveNavbar() {
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
-
-          {user ? (
+          {user &&(
             <Nav>
               <NavDropdown style={{ height: "2rem" }} title={
-                  <Image roundedCircle thumbnail src={user?.image||"/user.jpg"} alt={"user"} width={40} height={40} />
+                  <Image src={user?.image} alt={"user"} width={40} height={40} />
                 } drop={"down"} id="user-nav-dropdown" align="end">
                 <NavDropdown.Item href="/profile">{user?.name}</NavDropdown.Item>
                 <NavDropdown.Item href="/profile">Perfil</NavDropdown.Item>
@@ -47,14 +46,10 @@ function ResponsiveNavbar() {
                 <NavDropdown.Item onClick={()=>signOut()}>Sair</NavDropdown.Item>
               </NavDropdown>
             </Nav>
-          ) : (
-            <Nav>
-              <Nav.Link onClick={()=>setOpen(true)}>Login | Register</Nav.Link>
-            </Nav>
           )}
+          {!user&&<Auth/>}
         </Navbar.Collapse>
       </Container>
-      <Auth open={open} onClose={()=>setOpen(false)}/>
     </Navbar>
   );
 }
