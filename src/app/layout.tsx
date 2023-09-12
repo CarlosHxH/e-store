@@ -4,8 +4,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import ResponsiveNavbar from '@/components/ResponsiveNavbar';
 import { CartProvider } from 'react-use-cart'
-//import './globals.css'
 import "bootstrap/dist/css/bootstrap.min.css";
+import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 

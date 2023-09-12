@@ -10,6 +10,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { signOut, useSession } from "next-auth/react";
 import { Image } from 'next/image';
 
+
 function ResponsiveNavbar() {
   const [open, setOpen] = useState(false);
   const { data: session } = useSession();
