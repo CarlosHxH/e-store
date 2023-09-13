@@ -4,7 +4,7 @@ import { Inter } from 'next/font/google'
 import ResponsiveNavbar from '@/components/ResponsiveNavbar';
 import { CartProvider } from 'react-use-cart'
 import "bootstrap/dist/css/bootstrap.min.css";
-import './globals.css'
+//import './globals.css'
 //import type { Metadata } from 'next'
 
 const inter = Inter({ subsets: ['latin'] })

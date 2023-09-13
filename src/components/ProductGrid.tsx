@@ -7,7 +7,7 @@ import { BiSolidHeart, BiHeart } from "react-icons/bi";
 import { useCart } from "react-use-cart";
 
 const ProductGrid = ({ data }: any) => {
-  const { addItem, items, emptyCart, getItem } = useCart()
+  const { addItem, emptyCart, getItem } = useCart()
   return (
     <Row className="p-0 m-0">
       {data.map((product: any) => (

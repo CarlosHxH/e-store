@@ -1,18 +1,16 @@
 "use client"
-import React, { useState } from 'react';
+import React from 'react';
 import Auth from "@/components/Auth";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { BiLogoWhatsapp } from "react-icons/bi";
 import Container from "react-bootstrap/Container";
 import NavDropdown from "react-bootstrap/NavDropdown";
-
 import { signOut, useSession } from "next-auth/react";
-import { Image } from 'next/image';
+import { Image } from 'react-bootstrap';
 
 
 function ResponsiveNavbar() {
-  const [open, setOpen] = useState(false);
   const { data: session } = useSession();
   const user = session?.user;
 
@@ -36,10 +34,11 @@ function ResponsiveNavbar() {
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
+
           {user &&(
             <Nav>
-              <NavDropdown style={{ height: "2rem" }} title={
-                  <Image src={user?.image} alt={"user"} width={40} height={40} />
+              <NavDropdown style={{ height: "2.5rem" }} title={
+                  <Image src={'/user.png'} alt={"user"} width={40} height={40} />
                 } drop={"down"} id="user-nav-dropdown" align="end">
                 <NavDropdown.Item href="/profile">{user?.name}</NavDropdown.Item>
                 <NavDropdown.Item href="/profile">Perfil</NavDropdown.Item>
