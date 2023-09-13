@@ -58,7 +58,7 @@ const Auth = () => {
         open={isOpen}
         textFieldVariant="outlined"
         onClose={toggle}
-        logoComponent={<Logo/>}
+        logoComponent={<Logo/> as any}
         handleSignUp={handleSignUp}
         handleForget={handleForget}
         handleSignIn={handleSignIn}
