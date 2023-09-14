@@ -1,10 +1,12 @@
 'use client'
+import Head from "next/head"
 import { NextAuthProvider } from '@/lib/providers'
 import { Inter } from 'next/font/google'
 import ResponsiveNavbar from '@/components/ResponsiveNavbar';
 import { CartProvider } from 'react-use-cart'
 import "bootstrap/dist/css/bootstrap.min.css";
 import './globals.css'
+import { Container } from 'react-bootstrap';
 //import type { Metadata } from 'next'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -20,16 +22,18 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang={'pt-BR'}>
-      <head>
+    <html lang={'en'}>
+      <Head>
         <title>E-Store</title>
         <meta name='E-Store' content='E-Store' />
-      </head>
+      </Head>
       <body className={inter.className}>
         <NextAuthProvider>
           <CartProvider>
             <ResponsiveNavbar/>
-            {children}
+            <Container className={'mt-5 pt-5'}>
+              {children}
+            </Container>
           </CartProvider>
         </NextAuthProvider>
       </body>

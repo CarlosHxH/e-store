@@ -1,20 +1,22 @@
 "use client"
 import React from 'react';
-import Auth from "@/components/Auth";
 import Nav from "react-bootstrap/Nav";
+import Image from 'react-bootstrap/Image';
 import Navbar from "react-bootstrap/Navbar";
-import { BiLogoWhatsapp } from "react-icons/bi";
 import Container from "react-bootstrap/Container";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { BiLogoWhatsapp } from "react-icons/bi";
 import { signOut, useSession } from "next-auth/react";
-import { Image } from 'react-bootstrap';
 
+import Auth from "@/components/Auth";
+import CartComponent from '@/components/CartComponent';
 
 function ResponsiveNavbar() {
   const { data: session } = useSession();
   const user = session?.user;
 
   return (
+    <>
     <Navbar collapseOnSelect bg="primary" variant="dark" expand="lg" className="fixed-top">
       <Container>
         <Navbar.Brand href="/">E-Store</Navbar.Brand>
@@ -51,6 +53,9 @@ function ResponsiveNavbar() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
+
+    <CartComponent/>
+    </>
   );
 }
 

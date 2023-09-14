@@ -12,7 +12,7 @@ function CartComponent({ children }: any) {
 
   return (
     <>
-      <Button variant="primary" onClick={handle} style={{ width: '2.5rem', height: '4rem', position: 'fixed', top: '4rem', right: '0', zIndex: 999}}>
+      <Button variant="primary" onClick={handle} style={{ width: '2.5rem', height: '4.5rem', position: 'fixed', top: '4.5rem', right: '0', zIndex: 999}}>
         {children}
         <BiCart/>
         {totalItems&&<Badge className={"position-absolute top-0 start-0 translate-middle badge rounded-pill bg-danger"} pill bg="danger">{totalItems}</Badge>}

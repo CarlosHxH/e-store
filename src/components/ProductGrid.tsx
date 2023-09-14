@@ -12,8 +12,8 @@ const ProductGrid = ({ data }: any) => {
   return (
     <Row className="p-0 m-0">
       {data.map((product: any) => (
-        <Col key={product.id} xs={6} sm={6} md={2} lg={2} className="my-1 mx-0">
-          <Card>
+        <Col key={product.id} xs={6} sm={6} md={4} lg={2} className="my-1 mx-0">
+          <Card as={'a'} href={`/product/${product.id}`}>
             <Card.Link className={'text-end inline border-none'} onClick={()=> emptyCart()}>
               {false?<BiSolidHeart color={'red'}/>:<BiHeart color={'red'}/>}
             </Card.Link>
@@ -21,7 +21,7 @@ const ProductGrid = ({ data }: any) => {
               <Card.Img variant="top" src={product.image} alt={product.title} style={{ height: "100px" }}/>
             </div>
             <Card.Body className="relative p-0">
-              <Card.Title className="multine-ellipsis text-sm m-1" style={{fontSize:12}} >
+              <Card.Title className="multine-ellipsis text-sm m-1" style={{fontSize:12, height:'1.8rem'}} >
                 {product.title}
               </Card.Title>
               <div className="d-flex justify-content-between align-items-center p-1">
