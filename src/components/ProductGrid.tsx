@@ -5,40 +5,40 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import { BiSolidHeart, BiHeart } from "react-icons/bi";
 import { useCart } from "react-use-cart";
+import { Badge } from "react-bootstrap";
 
 const ProductGrid = ({ data }: any) => {
   const { addItem, emptyCart, getItem } = useCart()
   return (
     <Row className="p-0 m-0">
       {data.map((product: any) => (
-        <Col key={product.id} xs={6} sm={6} md={3} lg={3} xl={2} className="my-1 mx-0">
-          <Card className="h-100">
+        <Col key={product.id} xs={6} sm={6} md={2} lg={2} className="my-1 mx-0">
+          <Card>
             <Card.Link className={'text-end inline border-none'} onClick={()=> emptyCart()}>
               {false?<BiSolidHeart color={'red'}/>:<BiHeart color={'red'}/>}
             </Card.Link>
-            <div className="p-1 mx-auto">
-              <Card.Img variant="top" src={product.image} alt={product.title} style={{ height: "140px" }}/>
+            <div className="p-0 pb-1 mx-auto">
+              <Card.Img variant="top" src={product.image} alt={product.title} style={{ height: "100px" }}/>
             </div>
-            <Card.Body className="relative">
-              <Card.Title className="line-clamp-2 text-sm" style={{fontSize:14}}>
+            <Card.Body className="relative p-0">
+              <Card.Title className="multine-ellipsis text-sm m-1" style={{fontSize:12}} >
                 {product.title}
               </Card.Title>
-            </Card.Body>
-            <Card.Footer className="text-center p-1">
-              <div className="d-flex justify-content-between align-items-center m-0">
-                <Card.Text className="text-muted text-sm m-0 p-0" as={"b"} style={{fontSize:12}}>
+              <div className="d-flex justify-content-between align-items-center p-1">
+                <Card.Text className="text-muted text-sm" as={"b"} style={{fontSize:11}}>
                   {product.price.toLocaleString('pt-BR',{ style: 'currency',currency:'BRL'})}
                 </Card.Text>
-                <Button style={{fontSize:12}} onClick={()=>addItem(product)} className="btn text-truncate rounded-lg text-light bg-primary btn-sm btn-primary position-relative">
+
+                <Button style={{fontSize:10}} onClick={()=>addItem(product)} className="btn rounded-lg text-light bg-primary btn-sm btn-primary position-relative">
                   Adicionar
                   {getItem(product.id)&&
-                  (<span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                  (<Badge pill bg={'danger'} className="position-absolute top-0 start-100 translate-middle">
                     {getItem(product.id)?.quantity||''}
                     <span className="visually-hidden">Qtd</span>
-                  </span>)}
+                  </Badge>)}
                 </Button>
               </div>
-            </Card.Footer>
+            </Card.Body>
           </Card>
         </Col>
       ))}

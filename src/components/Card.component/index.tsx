@@ -8,7 +8,7 @@ import { BiCart } from "react-icons/bi";
 function CartComponent({ children }: any) {
   const [show, setShow] = useState(false);
   const handle = () => setShow(!show);
-  const { items, isEmpty, removeItem, cartTotal, updateItemQuantity, totalItems } = useCart();
+  const { items, isEmpty, cartTotal, totalItems, emptyCart, removeItem, updateItemQuantity } = useCart();
 
   return (
     <>
@@ -49,7 +49,7 @@ function CartComponent({ children }: any) {
                     <Button variant={"success"}>
                         Finalizar Compra
                     </Button>
-                    <Button variant={"danger"}>
+                    <Button variant={"danger"} onClick={()=> emptyCart()}>
                         Esvaziar carrinho
                     </Button>
                 </ListGroup.Item>
