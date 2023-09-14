@@ -8,8 +8,8 @@ export default function CardPlaceholder({items=10}) {
   return (
     <Row className={'mt-5 pt-4'}>
       {Array.from(Array(items).keys()).map((e)=>(
-        <Col xs={6} md={3} lg={3} key={e} className={'m-1'}>
-            <Card style={{ width: "18rem" }}>
+        <Col xs={6} md={3} lg={3} key={e} className={'mb-1'}>
+            <Card>
             <Placeholder as={Card.Text} animation="glow">
                 <Placeholder xs={12} style={{ height: "8rem", width: "100%" }} />
             </Placeholder>

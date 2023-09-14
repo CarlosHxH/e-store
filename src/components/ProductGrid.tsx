@@ -11,13 +11,13 @@ const ProductGrid = ({ data }: any) => {
   return (
     <Row className="p-0 m-0">
       {data.map((product: any) => (
-        <Col key={product.id} xs={6} sm={6} md={3} lg={3} className="my-1 mx-0">
+        <Col key={product.id} xs={6} sm={6} md={3} lg={3} xl={2} className="my-1 mx-0">
           <Card className="h-100">
             <Card.Link className={'text-end inline border-none'} onClick={()=> emptyCart()}>
               {false?<BiSolidHeart color={'red'}/>:<BiHeart color={'red'}/>}
             </Card.Link>
             <div className="p-1 mx-auto">
-              <Card.Img variant="top" src={product.image} alt={product.title} style={{ height: "150px" }}/>
+              <Card.Img variant="top" src={product.image} alt={product.title} style={{ height: "140px" }}/>
             </div>
             <Card.Body className="relative">
               <Card.Title className="line-clamp-2 text-sm" style={{fontSize:14}}>
@@ -25,11 +25,11 @@ const ProductGrid = ({ data }: any) => {
               </Card.Title>
             </Card.Body>
             <Card.Footer className="text-center p-1">
-              <div className="d-flex justify-content-between align-items-center">
-                <Card.Text className="text-muted text-sm" as={"b"} style={{fontSize:12}}>
+              <div className="d-flex justify-content-between align-items-center m-0">
+                <Card.Text className="text-muted text-sm m-0 p-0" as={"b"} style={{fontSize:12}}>
                   {product.price.toLocaleString('pt-BR',{ style: 'currency',currency:'BRL'})}
                 </Card.Text>
-                <Button style={{fontSize:11}} onClick={()=>addItem(product)} className="btn rounded-lg text-light bg-primary btn-sm btn-primary position-relative">
+                <Button style={{fontSize:12}} onClick={()=>addItem(product)} className="btn text-truncate rounded-lg text-light bg-primary btn-sm btn-primary position-relative">
                   Adicionar
                   {getItem(product.id)&&
                   (<span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
