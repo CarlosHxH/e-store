@@ -6,6 +6,7 @@ import SearchResults from "react-filter-search";
 import SearchInput from "@/components/SearchInput";
 import ProductGrid from "@/components/ProductGrid";
 import CardPlaceholder from '@/components/CardPlaceholder';
+import CartComponent from "@/components/CartComponent";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ function CardProduct() {
   return (
     <Container fluid>
 
+      <CartComponent/>
       <SearchInput onSearch={(e: any) => setValue(e)} />
       <SearchResults
         value={value}

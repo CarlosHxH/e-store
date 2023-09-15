@@ -2,13 +2,11 @@
 import Head from "next/head"
 import { NextAuthProvider } from '@/lib/providers'
 import { Inter } from 'next/font/google'
-import ResponsiveNavbar from '@/components/ResponsiveNavbar';
-import { CartProvider } from 'react-use-cart'
+import ResponsiveNavbar from '@/components/ResponsiveNavbar';import { CartProvider } from 'react-use-cart'
 import "bootstrap/dist/css/bootstrap.min.css";
 import './globals.css'
 import { Container } from 'react-bootstrap';
 //import type { Metadata } from 'next'
-
 const inter = Inter({ subsets: ['latin'] })
 /*
 export const metadata: Metadata = {
