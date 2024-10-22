@@ -2,7 +2,7 @@ import React from "react";
 import { signIn } from "next-auth/react";
 import { DialogAuth } from "react-mui-auth-page-br";
 import { useSearchParams, useRouter } from "next/navigation";
-import { Image, Nav } from "react-bootstrap";
+import { Nav } from "react-bootstrap";
 
 const Auth = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -41,13 +41,6 @@ const Auth = () => {
   };
 
   const handleSocial = {};
-
-  const Logo = ()=>(
-    <div className={'text-center mb-3'}>
-      <Image src="/logo.jpeg" width={'auto'} height={'100%'} alt="logo" />
-      <div>{status||' '}</div>
-    </div>
-    )
 
   return (
     <>
